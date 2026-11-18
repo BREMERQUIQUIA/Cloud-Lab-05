@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Trivy reports and generated SBOMs
+trivy-*.json
+sbom-*.json
+
+# OS
+.DS_Store
+Thumbs.db

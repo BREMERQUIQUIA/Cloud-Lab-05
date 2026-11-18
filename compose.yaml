@@ -1,0 +1,28 @@
+services:
+  web:
+    image: cloud-lab-05:alpine
+    container_name: cloud-lab-05-compose
+    ports:
+      - "5006:5000"
+    restart: unless-stopped
+
+    read_only: true
+
+    cap_drop:
+      - ALL
+
+    security_opt:
+      - no-new-privileges:true
+
+    user: appuser
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health')"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
